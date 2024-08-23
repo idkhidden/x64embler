@@ -1,0 +1,7 @@
+﻿  x64embler.cpp
+D:\Folder\Work\x64embler\x64embler\x64embler\x64embler.cpp(85,33): warning C4267: 'initializing': conversion from 'size_t' to 'int32_t', possible loss of data
+  Generating code
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 333 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  x64embler.vcxproj -> D:\Folder\Work\x64embler\x64embler\x64\Release\x64embler.exe
