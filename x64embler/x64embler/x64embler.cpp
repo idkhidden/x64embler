@@ -29,7 +29,7 @@ void disassemble(const vector<uint8_t>& bytes)
         if (opcodeMap.find(opcode) != opcodeMap.end())
         {
 
-            if (opcode >= 0xB8 && opcode <= 0xBF) // handling mov opcode
+            if (opcode >= 0xB8 && opcode <= 0xBF) // handling mov 
             {
                 cout << opcodeMap[opcode];
 
@@ -41,12 +41,12 @@ void disassemble(const vector<uint8_t>& bytes)
                 cout << " 0x" << hex << setw(16) << setfill('0') << immediate;
                 offset += 9;
             }
-            else if (opcode >= 0x50 && opcode <= 0x57) // handling push opcode
+            else if (opcode >= 0x50 && opcode <= 0x57) // handling push 
             {
                 cout << opcodeMap[opcode];
                 offset += 1;
             }
-            else if (opcode >= 0x58 && opcode <= 0x5F) // handling pop opcode
+            else if (opcode >= 0x58 && opcode <= 0x5F) // handling pop 
             {
 
                 cout << opcodeMap[opcode];
@@ -73,7 +73,7 @@ void disassemble(const vector<uint8_t>& bytes)
                 cout << " 0x" << hex << setw(2) << setfill('0') << static_cast<int>(offsetValue);
                 offset += 2;
             }
-            else if (opcode == 0xE8) // handling call opcode
+            else if (opcode == 0xE8) // handling call with displacement 
             {
                 int32_t displacement = 0;
 
@@ -88,34 +88,33 @@ void disassemble(const vector<uint8_t>& bytes)
 
                 offset += 5;
             }
-
-
-            else if (opcode == 0x90) //handling nop opcode
+          
+           else if (opcode == 0x90) //handling nop 
             {
                 cout << opcodeMap[opcode];
                 offset += 1;
             }
-            else if (opcode == 0xF4) //handling hlt opcode
+            else if (opcode == 0xF4) //handling hlt 
             {
                 cout << opcodeMap[opcode];
                 offset += 1;
             }
-            else if (opcode == 0x9B) //handling wait opcode
+            else if (opcode == 0x9B) //handling wait 
             {
                 cout << opcodeMap[opcode];
                 offset += 1;
             }
-            else if (opcode == 0xF0) //handling cli opcode
+            else if (opcode == 0xF0) //handling cli 
             {
                 cout << opcodeMap[opcode];
                 offset += 1;
             }
-            else if (opcode == 0xF8) //handling sti opcode
+            else if (opcode == 0xF8) //handling sti 
             {
                 cout << opcodeMap[opcode];
                 offset += 1;
             }
-            else if (opcode == 0xC3) //handling ret opcode
+            else if (opcode == 0xC3) //handling ret 
             {
                 cout << opcodeMap[opcode];
                 offset += 1;
@@ -135,7 +134,6 @@ void disassemble(const vector<uint8_t>& bytes)
             }
             else
             {
-                cout << "[unknown]";
                 offset++;
             }
         }
@@ -150,28 +148,23 @@ void disassemble(const vector<uint8_t>& bytes)
 
 int main() 
 {
-    std::vector<uint8_t> binary = {
-     0xe9, 0x1e, 0x00, 0x00, 0x00,
-     0x48, 0xb8, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  
-     0x48, 0xbf, 0xef, 0xbe, 0xad, 0xde, 0x00, 0x00, 0x00, 0x00,  
+    string binpath;
+    cout << "[ x64embler ] Enter bin name -> ";
+    cin >> binpath;
 
+    ifstream bin(binpath, ios::binary);
 
-     0xe9, 0x0c, 0x00, 0x00, 0x00,                
+    if (!bin)
+    {
+        cout << "[ Error ] Couldnt open bin :(\n";
+        return 1;
+    }
 
-     0x48, 0xb8, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  
-     0x48, 0xbf, 0xef, 0xbe, 0xad, 0xde, 0x00, 0x00, 0x00, 0x00, 
+    vector<uint8_t> binary((istreambuf_iterator<char>(bin)), istreambuf_iterator<char>());
 
-     0x75, 0x0c, 0x00, 0x00, 0x00,  
-
-     0x48, 0xb8, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
-     0x48, 0xbf, 0xef, 0xbe, 0xad, 0xde, 0x00, 0x00, 0x00, 0x00,  
-
-     0x48, 0xb8, 0x3c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  
-     0x48, 0xbf, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
-     0xC3,                
-    };
 
     disassemble(binary);
 
-    return 0;
+    while (1);
+    
 }
