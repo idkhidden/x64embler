@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <vector>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -105,6 +106,7 @@ unordered_map<uint8_t, string> opcodeMap = {
 
 unordered_map<uint8_t, string> registerMap =
 {
+   
     {0xC0, "RAX"}, {0xC1, "RCX"}, {0xC2, "RDX"}, {0xC3, "RBX"},
     {0xC4, "RSP"}, {0xC5, "RBP"}, {0xC6, "RSI"}, {0xC7, "RDI"}
 };
