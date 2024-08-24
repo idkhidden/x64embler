@@ -1,0 +1,8 @@
+﻿  x64embler.cpp
+D:\Folder\Work\x64embler\x64embler\x64embler\x64embler.cpp(85,33): warning C4267: 'initializing': conversion from 'size_t' to 'int32_t', possible loss of data
+  Generating code
+  195 of 348 functions (56.0%) were compiled, the rest were copied from previous compilation.
+    46 functions were new in current compilation
+    38 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  x64embler.vcxproj -> D:\Folder\Work\x64embler\x64embler\x64\Release\x64embler.exe
