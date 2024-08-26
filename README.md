@@ -12,9 +12,5 @@ x64embler is an ineffective x86-64 disassembler developed in C++. It provides an
 ![image](https://github.com/user-attachments/assets/35b15f42-3e9e-458f-b62f-04bb68d2bc48)
 
 
-## Contributing
-We welcome contributions to improve this project. 
-
-
 ## License
 x64embler is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
